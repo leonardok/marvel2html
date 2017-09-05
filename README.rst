@@ -17,6 +17,7 @@ In order to run this project you will need:
 
 Quickstart
 ----------
+::
 
     $ git clone https://github.com/leonardok/marvel2html.git
     $ heroku create
