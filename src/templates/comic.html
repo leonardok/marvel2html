@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{ context['comic']['title'] }}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/album.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse bg-inverse">
+    <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand">Comic Summary</a>
+    </div>
+</div>
+
+<section class="jumbotron text-center">
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-4">
+                <img class="img-fluid"
+                     src="{{ context['comic']['thumbnail']['path'] + '.' +  context['comic']['thumbnail']['extension'] }}">
+            </div>
+
+            <div class="col-8">
+                <h1 class="jumbotron-heading">{{ context['comic']['title'] }}</h1>
+                <p>{{ context['comic']['description'] }}</p>
+                <br>
+                <p>{{ context['attributionHTML']|safe }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="album text-muted">
+    <div class="container">
+        <h2>Featured Characters</h2>
+
+        <div class="row">
+            {% for char in context['featured_chars'] %}
+            <div class="card">
+                <img src="{{ char['thumbnail'] }}" class="img-fluid" alt="{{ char['name'] }}">
+                <p class="card-text">{{ char['name'] }}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+
+<footer class="text-muted">
+    <div class="container">
+        <p class="float-right">
+            <a href="#">Back to top</a>
+        </p>
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+        integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+</body>
+</html>
